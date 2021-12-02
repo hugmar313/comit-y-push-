@@ -15,22 +15,22 @@ public class Comitpush {
      */
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
-        int temp;
-        System.out.println("Bienvenido/a");
-        // TODO code application logic here
-        System.out.println("Introduce una temperatura y te dire si es positiva o negativa:");
-        temp=input.nextInt();
-        if (temp>0){
-            System.out.println("La temperatura es positiva.");
-        }
-        else{
-            if(temp<0){
-                System.out.println("Latemperatura es negativa.");
+        int num;
+        System.out.println("Introduzca el numero de temperaturas que vas a introducir:");
+        num=input.nextInt();
+        double temp;
+        double max=Double.MIN_VALUE;
+        double min=Double.MAX_VALUE;
+        System.out.print("Introduce la/s temperaturas:");
+        for (int i = 1; i <= num; i++) {
+            temp = input.nextDouble();
+            if (temp < min) {
+                min = temp;
             }
-            else{
-                System.out.println("La temperatura es 0, por lo tanto no es ni negativa ni positiva.");
+            if (temp > max) {
+                max=temp;
             }
-        }
+        }   
+        System.out.println("La menor es "+min+" y la mayor es "+max+".");
     }
-    
 }
