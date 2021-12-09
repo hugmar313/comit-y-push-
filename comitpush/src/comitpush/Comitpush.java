@@ -24,6 +24,13 @@ public class Comitpush {
         System.out.print("Introduce la/s temperaturas:");
         for (int i = 1; i <= num; i++) {
             temp = input.nextDouble();
+            if (temp < 0) {
+                System.out.println("Es negativa.");
+            } else if (temp > 0) {
+                System.out.println("Es positiva.");
+            } else {
+                System.out.println("Es 0.");
+            }
             if (temp < min) {
                 min = temp;
             }
