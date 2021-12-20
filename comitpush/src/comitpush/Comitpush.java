@@ -15,29 +15,43 @@ public class Comitpush {
      */
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
+        int minmuni,maxmuni;
         int num;
         System.out.println("Introduzca el numero de temperaturas que vas a introducir:");
         num=input.nextInt();
-        double temp;
         double max=Double.MIN_VALUE;
         double min=Double.MAX_VALUE;
-        System.out.print("Introduce la/s temperaturas:");
-        for (int i = 1; i <= num; i++) {
-            temp = input.nextDouble();
-            if (temp < 0) {
+        System.out.println("Introduce la/s temperaturas y de que municio/s son:");
+        int temp[]=new int[num];
+        String muni[]=new String[num];
+        for (int i=0;i<temp.length;i++){
+            temp[i]=input.nextInt();
+            if (temp[i] < 0) {
                 System.out.println("Es negativa.");
-            } else if (temp > 0) {
+            } else if (temp[i] > 0) {
                 System.out.println("Es positiva.");
             } else {
                 System.out.println("Es 0.");
             }
-            if (temp < min) {
-                min = temp;
+            System.out.println("ahora di muni");
+            muni[i]= input.nextLine();    
+        }
+        
+        for (int i=0;i<temp.length;i++) {
+
+            if (temp[i] < min) {
+                min = temp[i];
+                minmuni=i;
             }
-            if (temp > max) {
-                max=temp;
+            if (temp[i] > max) {
+                max=temp[i];
+                maxmuni=i;
             }
         }   
-        System.out.println("La menor es "+min+" y la mayor es "+max+".");
+        System.out.println("Las temperaturas introducidas son:");
+        for (int i=0;i<temp.length;i++){
+            System.out.println(temp[i]);
+        }
+        System.out.println("Las temperatura mayor es");
     }
 }
